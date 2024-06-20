@@ -1,0 +1,48 @@
+.questsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    background-color: #282c34;
+}
+
+.ant-collapse .ant-collapse-content {
+    background-color: #282c34;
+}
+
+.checkboxContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: start;
+}
+
+.questContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    height: 150px;
+    text-overflow: ellipsis;
+}
+
+.questNpcLabel {
+    font-size: 18px;
+    font-weight: 700;
+    color: black;
+    opacity: 0.9;
+}
+
+.questquestLabel {
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+    opacity: 0.9;
+}
+.questExpLabel {
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+    opacity: 0.9;
+}

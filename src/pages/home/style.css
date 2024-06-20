@@ -1,0 +1,13 @@
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    gap: 16px;
+    color: white;
+}
+
+.levelContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
