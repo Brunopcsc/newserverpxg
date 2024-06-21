@@ -138,13 +138,13 @@ export const Home = () => {
                     style={{ width: '80px' }}
                 />
                 Level após quests e tasks:
-                {expPerLevel.find(
+                {(expPerLevel.find(
                     (level) =>
                         level.exp >
                         experiencia +
                             questExperienceLeft * 1000 +
                             taskExperienceLeft * 1000
-                )?.level ?? 0}
+                )?.level ?? 1) - 1}
             </div>
             <Collapse
                 items={items}
