@@ -1,0 +1,24 @@
+.developmentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.developmentContainer h1 {
+    color: var(--secondary-text-color);
+}
+.developmentContainer p {
+    color: var(--secondary-text-color);
+    text-align: center;
+}
+
+.developmentContent {
+    margin-top: 20px;
+}
+
+.developmentIcon {
+    font-size: 64px;
+    color: #3498db;
+}

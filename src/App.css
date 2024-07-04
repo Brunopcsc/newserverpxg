@@ -1,4 +1,15 @@
 .App {
+    display: flex;
+    height: 100vh;
+    overflow-x: hidden; /* Para esconder a barra de rolagem horizontal */
+
+    background-color: var(--primary-color);
+    font-size: calc(10px + 2vmin);
+}
+
+.content {
+    flex: 1;
+    margin-left: 170px;
 }
 
 .App-logo {
@@ -13,7 +24,7 @@
 }
 
 .App-header {
-    background-color: #282c34;
+    background-color: var(--primary-color);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -35,6 +46,15 @@ span {
 .levelContainer {
     display: flex;
     flex-direction: row;
+}
+
+:root {
+    --primary-color: #1c1c1c;
+    --secondary-color: #4f4f4f;
+    --third-color: #ef7b45;
+    --primary-text-color: #00abd1;
+    --secondary-text-color: #def0fc;
+    --third-text-color: #292c30;
 }
 
 @keyframes App-logo-spin {

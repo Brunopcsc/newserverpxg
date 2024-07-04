@@ -1,14 +1,21 @@
-.questsContainer {
+.tasksContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.tasksWrapper {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     gap: 16px;
     flex-wrap: wrap;
-    background-color: #282c34;
 }
 
 .ant-collapse .ant-collapse-content {
-    background-color: #282c34;
+    background-color: var(--secondary-color);
 }
 
 .checkboxContainer {
@@ -18,31 +25,33 @@
     justify-content: start;
 }
 
-.questContainer {
+.taskContainer {
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: start;
-    height: 150px;
+    height: 100px;
+    max-height: 100px;
     text-overflow: ellipsis;
+    overflow-y: auto;
 }
 
-.questNpcLabel {
+.taskNpcLabel {
     font-size: 18px;
     font-weight: 700;
-    color: black;
+    color: var(--secondary-text-color);
     opacity: 0.9;
 }
 
-.questquestLabel {
+.taskTaskLabel {
     font-size: 18px;
     font-weight: 400;
-    color: black;
+    color: var(--secondary-text-color);
     opacity: 0.9;
 }
-.questExpLabel {
+.taskExpLabel {
     font-size: 18px;
     font-weight: 400;
-    color: black;
+    color: var(--secondary-text-color);
     opacity: 0.9;
 }

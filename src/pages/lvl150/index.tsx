@@ -3,13 +3,13 @@ import { Collapse, CollapseProps, Input } from 'antd'
 import './style.css'
 import { allTasks } from '../../model/tasks'
 import { useEffect, useState } from 'react'
-import { Tasks } from '../tasks/tasks'
-import { Quests } from '../quests/quests'
+import { Tasks } from '../../components/tasks/tasks'
+import { Quests } from '../../components/quests/quests'
 import { allQuests } from '../../model/quests'
 import { expPerLevel } from '../../model/exp_per_level'
 import { UserData, saveData } from '../../model/model'
 
-export const Home = () => {
+export const Level150 = () => {
     const [experiencia, setExperiencia] = useState(0)
     const [tasks, setTasks] = useState(allTasks)
     const [quests, setQuests] = useState(allQuests)
@@ -137,7 +137,8 @@ export const Home = () => {
                     onChange={handleChange}
                     style={{ width: '80px' }}
                 />
-                Level após quests e tasks:
+                <br />
+                Level após quests e tasks:{' '}
                 {(expPerLevel.find(
                     (level) =>
                         level.exp >
@@ -150,8 +151,8 @@ export const Home = () => {
                 items={items}
                 onChange={onChange}
                 style={{
-                    backgroundColor: '#282c34',
-                    width: '95vw',
+                    backgroundColor: 'var(--secondary-color)',
+                    width: '95%',
                 }}
             />
         </div>
