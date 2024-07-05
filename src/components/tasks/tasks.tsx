@@ -3,6 +3,7 @@ import { Task } from '../../model/tasks'
 import './style.css'
 import { SetStateAction, useState } from 'react'
 import { Content } from '../../pages/content/content'
+import { convertExperienceLeft } from '../../utils/dataUtils'
 
 interface TasksProps {
     tasks: Task[]
@@ -48,7 +49,7 @@ export const Tasks = ({ tasks, setTasks }: TasksProps) => {
                                 <div className="taskContainer">
                                     <Content
                                         title="Experiência"
-                                        value={`${task.exp}k`}
+                                        value={convertExperienceLeft(task.exp)}
                                     />
                                     <Content title="Task" value={task.task} />
                                 </div>

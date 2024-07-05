@@ -1,7 +1,9 @@
-import { Quest, allQuests } from './quests'
-import { Task, allTasks } from './tasks'
+import { Level } from './level'
+import { Quest, lvl150quests } from './quests'
+import { Task, lvl150Tasks } from './tasks'
 
 export interface UserData {
+    referenceLevel: Level
     level: string
     percentage: string
     quests: Quest[]
@@ -9,16 +11,20 @@ export interface UserData {
 }
 
 export const initialUserData: UserData = {
+    referenceLevel: Level.LVL0_150,
     level: '',
     percentage: '',
-    tasks: allTasks,
-    quests: allQuests,
+    tasks: lvl150Tasks,
+    quests: lvl150quests,
 }
 
-export const saveData = (userData?: UserData) => {
+export const saveData = (userData?: UserData, level?: Level) => {
     if (userData) {
         const jsonData: string = JSON.stringify(userData)
 
-        localStorage.setItem('userData', jsonData)
+        localStorage.setItem(
+            level === Level.LVL0_150 ? 'userData150' : 'userData300',
+            jsonData
+        )
     }
 }

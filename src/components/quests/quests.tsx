@@ -5,6 +5,7 @@ import { SetStateAction, useState } from 'react'
 import { Content } from '../../pages/content/content'
 import { FaLink, FaStar, FaTrophy } from 'react-icons/fa'
 import { GiUpgrade } from 'react-icons/gi'
+import { convertExperienceLeft } from '../../utils/dataUtils'
 
 interface QuestsProps {
     quests: Quest[]
@@ -51,7 +52,7 @@ export const Quests = ({ quests, setQuests }: QuestsProps) => {
                             <Card
                                 title={`${quest.name}`}
                                 bordered={false}
-                                style={{ width: 400 }}
+                                style={{ width: 450 }}
                             >
                                 <div className="questContainer">
                                     <div className="questExpLabel">
@@ -64,7 +65,9 @@ export const Quests = ({ quests, setQuests }: QuestsProps) => {
                                     <div className="questExpLabel">
                                         <Content
                                             title="Experiência"
-                                            value={`${quest.expReward}k`}
+                                            value={convertExperienceLeft(
+                                                quest.expReward
+                                            )}
                                             icon={<ExperienceIcon />}
                                         />
                                     </div>

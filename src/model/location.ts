@@ -20,4 +20,10 @@ export enum Location {
     MURCOTT = 'Murcott',
     TANGELO_ISLAND = 'Tangelo Island',
     PETALGROOVE_ISLAND = 'Petalgroove Island',
+    PHENAC = 'Phenac',
+    AGATE = 'Agate',
+    GATEON = 'Gateon',
+    OUTLAND_SOUTH = 'Outland South',
+    OUTLAND_EAST = 'Outland East',
+    OUTLAND_NORTH = 'Outland North',
 }

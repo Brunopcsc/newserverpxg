@@ -2,8 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import Sidebar from './components/sidebar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Level150 } from './pages/lvl150'
+import { QuestsAndTasks } from './pages/lvl150'
 import EmDesenvolvimentoPage from './components/developing'
+import { Level } from './model/level'
 
 function App() {
     const [isOpen, setIsOpen] = useState(true)
@@ -19,14 +20,19 @@ function App() {
                 <div className="content">
                     <Routes>
                         <Route path="/" element={<EmDesenvolvimentoPage />} />
-                        <Route path="/lvl150" element={<Level150 />} />
+                        <Route
+                            path="/lvl150"
+                            element={<QuestsAndTasks level={Level.LVL0_150} />}
+                        />
                         <Route
                             path="/lvl200"
                             element={<EmDesenvolvimentoPage />}
                         />
                         <Route
                             path="/lvl300"
-                            element={<EmDesenvolvimentoPage />}
+                            element={
+                                <QuestsAndTasks level={Level.LVL200_300} />
+                            }
                         />
                     </Routes>
                 </div>

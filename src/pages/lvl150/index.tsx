@@ -1,18 +1,28 @@
 import { Collapse, CollapseProps, Input } from 'antd'
 
 import './style.css'
-import { allTasks } from '../../model/tasks'
+import { lvl150Tasks, lvl300Tasks } from '../../model/tasks'
 import { useEffect, useState } from 'react'
 import { Tasks } from '../../components/tasks/tasks'
 import { Quests } from '../../components/quests/quests'
-import { allQuests } from '../../model/quests'
+import { lvl150quests, lvl300quests } from '../../model/quests'
 import { expPerLevel } from '../../model/exp_per_level'
 import { UserData, saveData } from '../../model/model'
+import { Level } from '../../model/level'
+import { convertExperienceLeft } from '../../utils/dataUtils'
 
-export const Level150 = () => {
+interface QuestsAndTasksProps {
+    level: Level
+}
+
+export const QuestsAndTasks = ({ level }: QuestsAndTasksProps) => {
     const [experiencia, setExperiencia] = useState(0)
-    const [tasks, setTasks] = useState(allTasks)
-    const [quests, setQuests] = useState(allQuests)
+    const [tasks, setTasks] = useState(
+        level === Level.LVL0_150 ? lvl150Tasks : lvl300Tasks
+    )
+    const [quests, setQuests] = useState(
+        level === Level.LVL0_150 ? lvl150quests : lvl300quests
+    )
     const [userData, setUserData] = useState<UserData>()
 
     const [questExperienceLeft, setQuestExperienceLeft] = useState<number>(0)
@@ -27,7 +37,9 @@ export const Level150 = () => {
     })
 
     useEffect(() => {
-        const storedData: string | null = localStorage.getItem('userData')
+        const storedData: string | null = localStorage.getItem(
+            level === Level.LVL0_150 ? 'userData150' : 'userData300'
+        )
 
         if (storedData) {
             const parsedData: UserData = JSON.parse(storedData)
@@ -39,6 +51,7 @@ export const Level150 = () => {
                 percentage: parsedData.percentage,
             })
             setUserData({
+                referenceLevel: level,
                 level: parsedData.level,
                 percentage: parsedData.percentage,
                 tasks: parsedData.tasks,
@@ -48,8 +61,8 @@ export const Level150 = () => {
     }, [])
 
     useEffect(() => {
-        saveData(userData)
-    }, [userData])
+        saveData(userData, level)
+    }, [userData, level])
 
     useEffect(() => {
         const experiencebase =
@@ -88,6 +101,7 @@ export const Level150 = () => {
         )
 
         setUserData({
+            referenceLevel: level,
             level: formValues.level,
             percentage: formValues.percentage,
             tasks: tasks,
@@ -106,12 +120,12 @@ export const Level150 = () => {
     const items: CollapseProps['items'] = [
         {
             key: '1',
-            label: `Tasks - Experiência restante: ${taskExperienceLeft.toFixed(1)}k`,
+            label: `Tasks - Experiência restante: ${convertExperienceLeft(taskExperienceLeft)}`,
             children: <Tasks tasks={tasks} setTasks={setTasks} />,
         },
         {
             key: '2',
-            label: `Quests - Experiência restante: ${questExperienceLeft.toFixed(1)}k `,
+            label: `Quests - Experiência restante: ${convertExperienceLeft(questExperienceLeft)}`,
             children: <Quests quests={quests} setQuests={setQuests} />,
         },
     ]
